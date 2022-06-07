@@ -23,5 +23,11 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => '服',
         ]);
+        Category::create([
+            'name' => '日用品',
+        ]);
+        Category::create([
+            'name' => '電化製品',
+        ]);
     }
 }

@@ -17,10 +17,10 @@ class CreateItemsTable extends Migration
             $table->id()->index();
             $table->integer('category_id');
             $table->string('name',50);
-            $table->string('image1',191)->nullable()->change();
-            $table->string('image2',191)->nullable()->change();
-            $table->string('image3',191)->nullable()->change();
-            $table->string('image4',191)->nullable()->change();
+            $table->string('image1',191)->nullable();
+            $table->string('image2',191)->nullable();
+            $table->string('image3',191)->nullable();
+            $table->string('image4',191)->nullable();
             $table->integer('price');
             $table->string('item_detail',191);
             $table->integer('sales_status');

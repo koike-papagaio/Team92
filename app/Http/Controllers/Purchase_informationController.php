@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Buy;
 
-class Purchase_infomationController extends Controller
+class Purchase_informationController extends Controller
 {
     /**
     * 購入履歴一覧
@@ -13,8 +14,8 @@ class Purchase_infomationController extends Controller
     */
     public function index(Request $request)
     {
-        $buys = Buy::orderBy('id', 'asc')->get();
-        return view('user.purchase_infomation', [
+        $buys = Buy::get();
+        return view('user.purchase_information', [
             'buys' => $buys,
         ]);
     }

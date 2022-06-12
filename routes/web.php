@@ -25,5 +25,5 @@ Route::post('/product_edit', [App\Http\Controllers\Product_editController::class
 
 Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);
 
-Route::get('/buy_history', [App\Http\Controllers\Buy_historyController::class, 'buy_history'])->name('buy_history');
-Route::get('/purchase_information', [App\Http\Controllers\Purchase_informationController::class, 'purchase_information'])->name('purchase_information');
+Route::get('/buy_history', [App\Http\Controllers\Buy_historyController::class, 'index'])->name('buy_history');
+Route::get('/purchase_information', [App\Http\Controllers\Purchase_informationController::class, 'index'])->name('purchase_information');

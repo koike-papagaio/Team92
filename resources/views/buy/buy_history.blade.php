@@ -20,24 +20,29 @@
 
             <!-- テーブル本体 -->
             <tbody>
+                <tr>
+                    
+                    
+                    <td>購入日</td>
+                    
+                    <td>商品名</td>
+                    <td>値段</td>
+                    <td>数量</td>
+                    <td>支払い方法</td>
+                    <td>発注状況</td>
+                </tr>
+
                 @foreach ($buys as $buy)
                 <tr>
                     <!-- タスク名 -->
-                    <td class="table-text">
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                        <div>{{ $buy->id }}</div>
-                    </td>
-
-                    <td>
-                        <!-- TODO: 削除ボタン -->
-                    </td>
+                    
+                    <td>{{ $buy->created_at }}</td>
+                    
+                    <td>{{ $buy->item_name }}</td>
+                    <td>{{ $buy->price }}</td>
+                    <td>{{ $buy->quantity }}</td>
+                    <td>{{ $buy->payment }}</td>
+                    
                 </tr>
                 @endforeach
             </tbody>

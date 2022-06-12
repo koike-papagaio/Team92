@@ -14,7 +14,7 @@ class Buy_historyController extends Controller
     */
     public function index(Request $request)
     {
-        $buys = Buy::orderBy('created_at', 'asc')->get();
+        $buys = Buy::get();
         return view('buy.buy_history', [
             'buys' => $buys,
         ]);

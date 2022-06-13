@@ -21,10 +21,8 @@
             <!-- テーブル本体 -->
             <tbody>
                 <tr>
-                    
-                    
                     <td>購入日</td>
-                    
+                    <td>合計金額</td>
                     <td>商品名</td>
                     <td>値段</td>
                     <td>数量</td>
@@ -34,15 +32,13 @@
 
                 @foreach ($buys as $buy)
                 <tr>
-                    <!-- タスク名 -->
-                    
+                    <!-- タスク名 -->                    
                     <td>{{ $buy->created_at }}</td>
-                    
+                    <td>{{ $buy->price * $buy->quantity }}</td>
                     <td>{{ $buy->item_name }}</td>
                     <td>{{ $buy->price }}</td>
                     <td>{{ $buy->quantity }}</td>
-                    <td>{{ $buy->payment }}</td>
-                    
+                    <td>{{ $buy->payment }}</td>                    
                 </tr>
                 @endforeach
             </tbody>

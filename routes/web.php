@@ -24,3 +24,4 @@ Route::get('/product_edit/{id}', [App\Http\Controllers\Product_editController::c
 Route::post('/product_edit', [App\Http\Controllers\Product_editController::class, 'edit']);
 
 Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);
+Route::get('/product_delete/{id}', [App\Http\Controllers\Product_managementController::class, 'delete']);

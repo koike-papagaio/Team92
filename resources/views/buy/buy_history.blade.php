@@ -15,7 +15,7 @@
     <!-- 購入期間選択 -->
     <div>
         <div>購入時期</div>
-        
+
         <table class="table table-striped task-table">
 
             <!-- テーブル本体 -->

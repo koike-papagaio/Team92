@@ -9,6 +9,11 @@
 <body>
     <!-- 表題 -->
     <div>購入情報管理</div>
+
+    
+        <input type="text" placeholder="キーワードを入力してください">
+        <button type="button">検索</button>
+        
     <!-- テーブル -->
     <div>        
         <table class="table table-striped task-table">

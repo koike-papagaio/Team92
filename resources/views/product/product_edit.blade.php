@@ -12,7 +12,6 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-    <!-- <x-Header> -->
         
     <!-- 商品編集 -->
     <div class="edit-container w-50" style="margin: auto;">
@@ -39,10 +38,10 @@
 
             <div class="form-group">
                 <label for="product-file" class="form-label">商品画像</label>
-                <input type="file" name="image1" value="{{$item->image1}}" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image2" value="{{$item->image2}}" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image3" value="{{$item->image3}}" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image4" value="{{$item->image4}}" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image1" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image2"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image3"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image4"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
             </div>
 
             <div class="form-group">

@@ -16,7 +16,6 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-    <!-- <x-Header> -->
 
     <!-- 商品管理画面 -->
     <div class="management-container" style="margin: auto;">
@@ -43,7 +42,7 @@
                     <td scope="row">{{$value->id}}</td>
                     <td>{{$value->category_name}}</td>
                     <td>{{$value->name}}</td>
-                    <td>{{$value->image1}}</td>
+                    <td><img src="{{$value->image1}}" alt="" style="width: 100px;"></td>
                     <td>{{$value->price}}円</td>
                     <td>{{$value->item_detail}}</td>
                     @if($value->sales_status == 0)

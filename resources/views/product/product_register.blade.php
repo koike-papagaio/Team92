@@ -12,7 +12,6 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-    <!-- <x-Header> -->
         
     <!-- 商品登録 -->
     <div class="register-container w-50" style="margin: auto;">

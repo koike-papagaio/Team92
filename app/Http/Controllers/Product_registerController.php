@@ -12,8 +12,10 @@ class Product_registerController extends Controller
     //
     public function index()
     {
+        // categoriesテーブルから全てのデータを取ってくる
         $categories = Category::all();
 
+        // $categoriesのデータをcategoriesという名前でview('/product/product_register')で受け取る
         return view('product/product_register')->with([
             'categories' => $categories,
         ]);
@@ -21,8 +23,10 @@ class Product_registerController extends Controller
 
     public function register(Request $request)
     {
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image1')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image1')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -35,11 +39,14 @@ class Product_registerController extends Controller
                 $file_path1 = Storage::disk('s3')->url($path1);
             }
         } else {
+            // ファイルが存在しない場合は，$file_path1にnullを代入する
             $file_path1 = null;
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image2')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image2')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -52,11 +59,14 @@ class Product_registerController extends Controller
                 $file_path2 = Storage::disk('s3')->url($path2);
             }
         } else {
+            // ファイルが存在しない場合は，$file_path2にnullを代入する
             $file_path2 = null;
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image3')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image3')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -69,11 +79,14 @@ class Product_registerController extends Controller
                 $file_path3 = Storage::disk('s3')->url($path3);
             }
         } else {
+            // ファイルが存在しない場合は，$file_path3にnullを代入する
             $file_path3 = null;
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image4')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image4')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -86,10 +99,14 @@ class Product_registerController extends Controller
                 $file_path4 = Storage::disk('s3')->url($path4);
             }
         } else {
+            // ファイルが存在しない場合は，$file_path4にnullを代入する
             $file_path4 = null;
         }
 
+        // Item Modelsを呼び出す
         $items = new Item();
+
+        // データを代入する
         $items->category_id = $request->category_id;
         $items->name = $request->name;
         $items->image1 = $file_path1;
@@ -100,10 +117,10 @@ class Product_registerController extends Controller
         $items->item_detail = $request->item_detail;
         $items->sales_status = config('const.sales_status.start');
 
+        // データを保存する
         $items->save();
 
-        // dd($items);
-        // exit;
+        // viewの'/product_management'に戻る
         return redirect('/product_management');
     }
 }

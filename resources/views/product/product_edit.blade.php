@@ -8,11 +8,13 @@
     <title>商品編集画面</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS読み込み publicフォルダから-->
+    <link rel="stylesheet" href="{{asset('')}}">
 </head>
 
 <body>
     <!-- ヘッダー読み込み -->
-        
+
     <!-- 商品編集 -->
     <div class="edit-container w-50" style="margin: auto;">
 
@@ -26,6 +28,7 @@
                 <label for="select-category" class="form-label">カテゴリ</label>
                 <select class="form-select w-100" id="select-category" name="category_id" required autofocus>
                     <option value="{{$item->category_id}}" selected>{{$item->category_name}}</option>
+                    <!-- foreachでProduct_editControllerから渡された$categoriesを$categoryとして値を取り出す-->
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
@@ -39,9 +42,9 @@
             <div class="form-group">
                 <label for="product-file" class="form-label">商品画像</label>
                 <input type="file" name="image1" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image2"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image3"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image4"  class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image2" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image3" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image4" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
             </div>
 
             <div class="form-group">

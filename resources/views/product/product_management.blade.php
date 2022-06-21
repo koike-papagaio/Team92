@@ -37,6 +37,7 @@
                 </tr>
             </thead>
             <tbody class="table-content">
+                <!-- foreachでProduct_managementControllerから渡された$itemsを$valueとして値を取り出す-->
                 @foreach($items as $value)
                 <tr>
                     <td scope="row">{{$value->id}}</td>
@@ -57,7 +58,9 @@
             </tbody>
         </table>
     </div>
+
     <script>
+        // tdタグの中に"販売停止"という文字列が含まれているとき，そのtdタグの親要素であるtrタグのcssを変更する
         $('td:contains("販売停止")').parent("tr").css("background-color", "#FFDBC9");
     </script>
 </body>

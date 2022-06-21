@@ -12,12 +12,13 @@ class Product_editController extends Controller
     //
     public function index(Request $request)
     {
+        // categoriesテーブルから全てのデータを取ってくる
         $categories = Category::all();
-        // $item = Item::where('id', '=', $request->id)->first();
-        $item = Item::select('items.*', 'categories.name as category_name')->join('categories', 'items.category_id', '=', 'categories.id')->where('items.id', '=', $request->id)->first();
-        // dd($item);
-        // exit;
 
+        // itemsテーブルのcategory_idとcategoriesテーブルのidを紐づけて， itemsテーブルとcategoriesテーブルを合体させ，itemsテーブルの全てのカラムとcategoriesテーブルのnameカラムをcategory_nameという名前のカラムに変え，$requestで受け取ったidとitemsテーブルのidが一致するものをデータ1件取得する
+        $item = Item::select('items.*', 'categories.name as category_name')->join('categories', 'items.category_id', '=', 'categories.id')->where('items.id', '=', $request->id)->first();
+        
+        // $categoriesのデータをcategories，$itemsのデータをitemsという名前でview('/product/product_edit')で受け取る
         return view('product/product_edit')->with([
             'categories' => $categories,
             'item' => $item,
@@ -26,12 +27,13 @@ class Product_editController extends Controller
 
     public function edit(Request $request)
     {
+        // itemsテーブルから$requestで受け取ったidとitemsテーブルのidが同じデータを1件取得する
         $items = Item::where('id', '=', $request->id)->first();
-        // dd($items);
-        // exit;
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image1')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image1')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -44,11 +46,14 @@ class Product_editController extends Controller
                 $file_path1 = Storage::disk('s3')->url($path1);
             }
         }else{
+            // ファイルが存在しない場合は，$itemsの中にあるimage1を$file_path1に代入する
             $file_path1 = $items['image1'];
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image2')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image2')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -61,11 +66,14 @@ class Product_editController extends Controller
                 $file_path2 = Storage::disk('s3')->url($path2);
             }
         }else{
+            // ファイルが存在しない場合は，$itemsの中にあるimage2を$file_path2に代入する
             $file_path2 = $items['image2'];
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image3')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image3')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -78,11 +86,14 @@ class Product_editController extends Controller
                 $file_path3 = Storage::disk('s3')->url($path3);
             }
         }else{
+            // ファイルが存在しない場合は，$itemsの中にあるimage3を$file_path3に代入する
             $file_path3 = $items['image3'];
         }
 
+        // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image4')) {
 
+            // isValidメソッドでファイルが存在しているかに付け加え、問題なくアップロードできたのか確認
             if ($request->file('image4')->isValid()) {
 
                 // ファイルそのものはWebサーバーに保存
@@ -95,6 +106,7 @@ class Product_editController extends Controller
                 $file_path4 = Storage::disk('s3')->url($path4);
             }
         }else{
+            // ファイルが存在しない場合は，$itemsの中にあるimage4を$file_path4に代入する
             $file_path4 = $items['image4'];
         }
         
@@ -108,16 +120,19 @@ class Product_editController extends Controller
         $items->price = $request->price;
         $items->item_detail = $request->item_detail;
 
+        // $requestのsales_statusが1の場合
         if ($request->sales_status == 1) {
+            // configフォルダのconstファイルにあるsales_status.stopの値をsales_statusに代入する
             $items->sales_status = config('const.sales_status.stop');
         } else {
+            // configフォルダのconstファイルにあるsales_status.startの値をsales_statusに代入する
             $items->sales_status = config('const.sales_status.start');
         }
 
-        // dd($items);
-        // exit;
+        // データを保存する
         $items->save();
 
+        // viewの'/product_management'に戻る
         return redirect('/product_management');
     }
 }

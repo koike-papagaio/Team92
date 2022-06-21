@@ -11,21 +11,17 @@ class Product_managementController extends Controller
     //
     public function index()
     {
+        // categoriesテーブルから全てのデータを取ってくる
         $categories = Category::all();
-        // $item = Item::where('id', '=', $request->id)->first();
-        $items = Item::select('items.*', 'categories.name as category_name')->join('categories', 'items.category_id', '=', 'categories.id')->get();
-        // dd($item);
-        // exit;
 
+        // itemsテーブルのcategory_idとcategoriesテーブルのidを紐づけて， itemsテーブルとcategoriesテーブルを合体させ，itemsテーブルの全てのカラムとcategoriesテーブルのnameカラムをcategory_nameという名前のカラムに変えて，該当するデータを取得する
+        $items = Item::select('items.*', 'categories.name as category_name')->join('categories', 'items.category_id', '=', 'categories.id')->get();
+
+        // $itemsのデータをitemsという名前でview('/product/product_management')で受け取る
         return view('/product/product_management')->with([
             'items' => $items,
         ]);
         
-        // $items = Item::all();
-
-        // return view('/product/product_management')->with([
-        //     'items' => $items,
-        // ]);
     }
 
     public function delete(Request $request){

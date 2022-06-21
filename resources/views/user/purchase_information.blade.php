@@ -46,7 +46,13 @@
                     <td>{{ $buy->item_name }}</td>
                     <td>{{ $buy->price }}</td>
                     <td>{{ $buy->quantity }}</td>
-                    <td>{{ $buy->payment }}</td>
+                    @if($buy->payment == 1)
+                    <td>代引き</td>
+                    @elseif($buy->payment == 2)
+                    <td>コンビニ支払い</td>
+                    @elseif($buy->payment == 3)
+                    <td>クレジットカード</td>
+                    @endif
                     <td><button type="button">発注未</button></td>
                 </tr>
                 @endforeach

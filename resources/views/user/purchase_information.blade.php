@@ -11,8 +11,8 @@
     <div>購入情報管理</div>
 
     
-        <input type="text" placeholder="キーワードを入力してください">
-        <button type="button">検索</button>
+        <!-- <input type="text" placeholder="キーワードを入力してください">
+        <button type="button">検索</button> -->
         
     <!-- テーブル -->
     <div>        
@@ -53,7 +53,11 @@
                     @elseif($buy->payment == 3)
                     <td>クレジットカード</td>
                     @endif
-                    <td><button type="button">発注未</button></td>
+                    <td>
+                        <form action="index.php" method="post">
+                            <button type="button" name="add">発注未</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -32,13 +32,24 @@
 
                 @foreach ($buys as $buy)
                 <tr>
-                    <!-- タスク名 -->                    
+                    <!-- タスク名 -->
                     <td>{{ $buy->created_at }}</td>
                     <td>{{ $buy->price * $buy->quantity }}</td>
                     <td>{{ $buy->item_name }}</td>
                     <td>{{ $buy->price }}</td>
                     <td>{{ $buy->quantity }}</td>
-                    <td>{{ $buy->payment }}</td>                    
+                    @if($buy->payment == 1)
+                    <td>代引き</td>
+                    @elseif($buy->payment == 2)
+                    <td>コンビニ支払い</td>
+                    @elseif($buy->payment == 3)
+                    <td>クレジットカード</td>
+                    @endif
+                    @if($buy->status == 0)
+                    <td>発注未</td>
+                    @elseif($buy->status == 1)
+                    <td>発注済</td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

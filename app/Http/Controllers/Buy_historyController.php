@@ -14,20 +14,11 @@ class Buy_historyController extends Controller
     */
     public function index(Request $request)
     {
+        $buys = Buy::where('user_id',1)->get();
+        // ->where('bought_num',2022060001)
 
-        
-        $names = Buy::where('user_id',1)->first();
-        // array_shiftを使用して配列の先頭の要素を取り出す
-        $value = reset($names);
-
-        $buys = Buy::where('user_id',1)
-        ->where('bought_num',2022060001)->get();
-        
-        
         return view('buy.buy_history', [
             'buys' => $buys,
-            'names' => $value,
-            
         ]);
     }
 }

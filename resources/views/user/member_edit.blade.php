@@ -35,7 +35,7 @@
             <input type="text" class="form-control" name="id" value="{{$user->id}}" hidden>
             <div class="form-group ">
                 <label for="user-name" class="form-label">お名前</label>
-                <input type="text" name="name" class="form-control" id="user-name" value="{{$user->name}}"  required autofocus>
+                <input type="text" name="name" class="form-control" id="user-name" value="{{$user->name}}" maxlength="30" required autofocus>
             </div>
 
             <div class="form-group">

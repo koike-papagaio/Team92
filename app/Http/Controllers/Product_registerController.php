@@ -3,15 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Category;
+
 use App\Models\Item;
+
 use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\Validator;
 
 class Product_registerController extends Controller
 {
     //
     public function index()
     {
+        // ログインの段階で保存したセッションの値(idとadmin)を取得する
+        $user_id = session()->get("id");
+
+        $user_admin = session()->get("admin");
+
+        // セッションの値が無い場合
+        if (empty($user_id) || empty($user_admin)) {
+            // viewの'/login'に戻る
+            return redirect('/login');
+        }
+
         // categoriesテーブルから全てのデータを取ってくる
         $categories = Category::all();
 
@@ -23,6 +39,27 @@ class Product_registerController extends Controller
 
     public function register(Request $request)
     {
+        // バリデーション実行
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'category_id' => 'required',
+                'name' => 'required|string|max:50',
+                'image1' => 'nullable|image',
+                'image2' => 'nullable|image',
+                'image3' => 'nullable|image',
+                'image4' => 'nullable|image',
+                'price' => 'required|integer',
+                'item_detail' => 'required|string|max:191'
+            ],
+        );
+
+        // バリデーションで引っかかった場合
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator);
+        }
+
         // hasFileメソッドで$requestの中にファイルが存在しているのか判定
         if ($request->hasFile('image1')) {
 

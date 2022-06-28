@@ -9,16 +9,27 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS読み込み publicフォルダから-->
-    <link rel="stylesheet" href="{{asset('')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
 <body>
     <!-- ヘッダー読み込み -->
 
     <!-- 商品編集 -->
-    <div class="edit-container w-50" style="margin: auto;">
+    <div class="edit-container w-50">
 
         <h2 class="mb-3">商品編集</h2>
+
+        <!-- バリデーションのエラーメッセージ -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
         <!-- 商品編集フォーム-->
         <form class="" action="{{ url('product_edit') }}" method="POST" enctype="multipart/form-data">
@@ -41,10 +52,42 @@
 
             <div class="form-group">
                 <label for="product-file" class="form-label">商品画像</label>
-                <input type="file" name="image1" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image2" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image3" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image4" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <div class="image-area">
+                    @if(empty($item->image1))
+                    <p>画像が登録されていません</p>
+                    <input type="file" name="image1" class="form-control product-file mb-3 p-0" id="product-file">
+                    @else
+                    <img src="{{$item->image1}}" alt="">
+                    <input type="file" name="image1" class="form-control product-file mb-3 p-0" id="product-file">
+                    @endif
+                </div>
+                <div class="image-area">
+                    @if(empty($item->image2))
+                    <p>画像が登録されていません</p>
+                    <input type="file" name="image2" class="form-control product-file mb-3 p-0" id="product-file">
+                    @else
+                    <img src="{{$item->image2}}" alt="">
+                    <input type="file" name="image2" class="form-control product-file mb-3 p-0" id="product-file">
+                    @endif
+                </div>
+                <div class="image-area">
+                    @if(empty($item->image3))
+                    <p>画像が登録されていません</p>
+                    <input type="file" name="image3" class="form-control product-file mb-3 p-0" id="product-file">
+                    @else
+                    <img src="{{$item->image3}}" alt="">
+                    <input type="file" name="image3" class="form-control product-file mb-3 p-0" id="product-file">
+                    @endif
+                </div>
+                <div class="image-area">
+                    @if(empty($item->image4))
+                    <p>画像が登録されていません</p>
+                    <input type="file" name="image4" class="form-control product-file mb-3 p-0" id="product-file">
+                    @else
+                    <img src="{{$item->image4}}" alt="">
+                    <input type="file" name="image4" class="form-control product-file mb-3 p-0" id="product-file">
+                    @endif
+                </div>
             </div>
 
             <div class="form-group">
@@ -57,18 +100,20 @@
                 <textarea class="w-100" name="item_detail" id="product-detail" rows="5" maxlength="191" required>{{$item->item_detail}}</textarea>
             </div>
 
-            <div class="form-check">
-                <input type="hidden" class="form-check-input" value="0" id="stop-selling-check" name="sales_status">
-                @if($item->sales_status == 1)
-                <input type="checkbox" class="form-check-input" value="1" id="stop-selling-check" name="sales_status" checked>
-                @else
-                <input type="checkbox" class="form-check-input" value="1" id="stop-selling-check" name="sales_status">
-                @endif
-                <label for="stop-selling-check" class="form-label">販売停止</label>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="hidden" class="form-check-input" value="0" id="stop-selling-check" name="sales_status">
+                    @if($item->sales_status == 1)
+                    <input type="checkbox" class="form-check-input" value="1" id="stop-selling-check" name="sales_status" checked>
+                    @else
+                    <input type="checkbox" class="form-check-input" value="1" id="stop-selling-check" name="sales_status">
+                    @endif
+                    <label for="stop-selling-check" class="form-label">販売停止</label>
+                </div>
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success" style="width:100px;">編集</button>
+                <button type="submit" class="btn btn-success">編集</button>
             </div>
         </form>
     </div>

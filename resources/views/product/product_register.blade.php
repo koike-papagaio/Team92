@@ -9,16 +9,27 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS読み込み publicフォルダから-->
-    <link rel="stylesheet" href="{{asset('')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
 <body>
     <!-- ヘッダー読み込み -->
 
     <!-- 商品登録 -->
-    <div class="register-container w-50" style="margin: auto;">
+    <div class="register-container w-50">
 
         <h2 class="mb-3">商品登録</h2>
+
+        <!-- バリデーションのエラーメッセージ -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
         <!-- 商品登録フォーム-->
         <form action="{{ url('product_register') }}" method="POST" enctype="multipart/form-data">
@@ -41,10 +52,10 @@
 
             <div class="form-group">
                 <label for="product-file" class="form-label">商品画像</label>
-                <input type="file" name="image1" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image2" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image3" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
-                <input type="file" name="image4" class="form-control mb-3 p-0" id="product-file" style="height:auto;">
+                <input type="file" name="image1" class="form-control product-file mb-3 p-0" id="product-file">
+                <input type="file" name="image2" class="form-control product-file mb-3 p-0" id="product-file">
+                <input type="file" name="image3" class="form-control product-file mb-3 p-0" id="product-file">
+                <input type="file" name="image4" class="form-control product-file mb-3 p-0" id="product-file">
             </div>
 
             <div class="form-group">
@@ -58,7 +69,7 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success" style="width:100px;">登録</button>
+                <button type="submit" class="btn btn-primary">登録</button>
             </div>
         </form>
     </div>

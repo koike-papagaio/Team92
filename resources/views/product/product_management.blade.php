@@ -11,16 +11,16 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <!-- CSS読み込み publicフォルダから-->
-    <link rel="stylesheet" href="{{asset('')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
 <body>
     <!-- ヘッダー読み込み -->
 
     <!-- 商品管理画面 -->
-    <div class="management-container" style="margin: auto;">
+    <div class="management-container w-100">
 
-        <h2 class="mb-3">商品管理</h2>
+        <h2 class="mb-5">商品管理</h2>
 
         <table class="table">
             <thead>
@@ -43,7 +43,7 @@
                     <td scope="row">{{$value->id}}</td>
                     <td>{{$value->category_name}}</td>
                     <td>{{$value->name}}</td>
-                    <td><img src="{{$value->image1}}" alt="" style="width: 100px;"></td>
+                    <td><img src="{{$value->image1}}" alt=""></td>
                     <td>{{$value->price}}円</td>
                     <td>{{$value->item_detail}}</td>
                     @if($value->sales_status == 0)
@@ -51,8 +51,8 @@
                     @else
                     <td>販売停止</td>
                     @endif
-                    <td><button><a href="/product_edit/{{$value->id}}">編集</a></button></td>
-                    <td><button><a href="/product_delete/{{$value->id}}">削除</a></button></td>
+                    <td><button class="btn btn-success"><a href="/product_edit/{{$value->id}}">編集</a></button></td>
+                    <td><button class="btn btn-danger"><a href="/product_delete/{{$value->id}}">削除</a></button></td>
                 </tr>
                 @endforeach
             </tbody>

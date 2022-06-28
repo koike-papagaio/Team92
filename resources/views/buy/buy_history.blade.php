@@ -10,7 +10,7 @@
     <!-- 表題 -->
     <div>
         <h1>購入履歴</h1>
-        <div>誰々さんの購入履歴</div>
+        <div>{{ $value->user_name??'' }}さんの購入履歴</div>
     </div>
     <!-- 購入期間選択 -->
     <div>
@@ -27,7 +27,7 @@
                     <td>値段</td>
                     <td>数量</td>
                     <td>支払い方法</td>
-                    <td>発注状況</td>
+                    <!-- <td>発注状況</td> -->
                 </tr>
 
                 @foreach ($buys as $buy)
@@ -45,11 +45,11 @@
                     @elseif($buy->payment == 3)
                     <td>クレジットカード</td>
                     @endif
-                    @if($buy->status == 0)
+                    <!-- @if($buy->status == 0)
                     <td>発注未</td>
                     @elseif($buy->status == 1)
                     <td>発注済</td>
-                    @endif
+                    @endif -->
                 </tr>
                 @endforeach
             </tbody>

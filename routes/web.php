@@ -28,4 +28,4 @@ Route::get('/product_management', [App\Http\Controllers\Product_managementContro
 Route::get('/buy_history', [App\Http\Controllers\Buy_historyController::class, 'index'])->name('buy_history');
 Route::get('/purchase_information', [App\Http\Controllers\Purchase_informationController::class, 'index'])->name('purchase_information');
 
-Route::get('/purchase_information/update/{id}', [App\Http\Controllers\Purchase_informationController::class, 'update'])->name('purchase_information');
+Route::post('/purchase_information/update/{id}', [App\Http\Controllers\Purchase_informationController::class, 'update'])->name('status/change');

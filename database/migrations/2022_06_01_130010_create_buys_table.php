@@ -19,7 +19,7 @@ class CreateBuysTable extends Migration
             $table->string('user_name',30);
             $table->string('address',191);
             $table->string('email',191);
-            $table->string('image1',191)->nullable()->change();
+            $table->string('image1',191)->nullable();
             $table->string('item_name',50);
             $table->integer('price');
             $table->integer('quantity');

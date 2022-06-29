@@ -25,3 +25,11 @@ Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])-
 Route::get('/basket/{id}', [App\Http\Controllers\BasketController::class, 'destroy'])->name('buy.index');
 Route::get('/confirmation', [App\Http\Controllers\ConfirmationController::class, 'confirmation'])->name('buy.confirmation');
 Route::get('/completed', [App\Http\Controllers\CompletedController::class, 'completed'])->name('buy.completed');
+
+Route::get('/product_register', [App\Http\Controllers\Product_registerController::class, 'index']);
+Route::post('/product_register', [App\Http\Controllers\Product_registerController::class, 'register']);
+
+Route::get('/product_edit/{id}', [App\Http\Controllers\Product_editController::class, 'index']);
+Route::post('/product_edit', [App\Http\Controllers\Product_editController::class, 'edit']);
+
+Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);

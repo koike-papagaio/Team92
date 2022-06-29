@@ -23,7 +23,13 @@ class Product_editController extends Controller
         $user_admin = session()->get("admin");
 
         // セッションの値が無い場合
-        if (empty($user_id) || empty($user_admin)) {
+        if (!isset($user_id) || !isset($user_admin)) {
+            // viewの'/login'に戻る
+            return redirect('/login');
+        }
+
+        // セッションのadminの値が管理者権限であるadmin = 1 でない場合->管理者権限の無いユーザーが情報を編集するのを防ぐ
+        if ($user_admin == config('const.admin.general')) {
             // viewの'/login'に戻る
             return redirect('/login');
         }
@@ -47,14 +53,14 @@ class Product_editController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'category_id' => 'required',
-                'name' => 'required|string|max:50',
-                'image1' => 'nullable|image',
-                'image2' => 'nullable|image',
-                'image3' => 'nullable|image',
-                'image4' => 'nullable|image',
-                'price' => 'required|integer',
-                'item_detail' => 'required|string|max:191'
+                'category_id' => ['required'],
+                'name' => ['required','string','max:50'],
+                'image1' => ['nullable','image'],
+                'image2' => ['nullable','image'],
+                'image3' => ['nullable','image'],
+                'image4' => ['nullable','image'],
+                'price' => ['required','integer'],
+                'item_detail' => ['required','string','max:191'],
             ],
         );
 

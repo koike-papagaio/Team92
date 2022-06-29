@@ -25,18 +25,19 @@ class Member_registerController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|string|max:30',
-                'address' => 'required|string|max:191',
-                'email' => 'required|email:rfc,dns|max:191',
-                'password' => 'required|string|max:128',
-                'pay_limit' => 'required|integer',
+                'name' => ['required','string','max:30'],
+                'address' => ['required','string','max:191'],
+                'email' => ['required','email:rfc,dns','string','max:191','unique:users'],
+                'password' => ['required','string','max:128'],
+                'pay_limit' => ['required','integer'],
             ],
         );
 
         // バリデーションで引っかかった場合
         if ($validator->fails()) {
             return redirect()->back()
-                ->withErrors($validator);
+                ->withErrors($validator)
+                ->withInput();
         }
 
         //  Modelsを呼び出す

@@ -47,7 +47,7 @@
             </div>
             <div class="form-group ">
                 <label for="product-name" class="form-label">商品名</label>
-                <input type="text" name="name" class="form-control" id="product-name" placeholder="商品名を入力してください" maxlength="50" required>
+                <input type="text" name="name" class="form-control" id="product-name" value="{{old('name')}}" placeholder="商品名を入力してください" maxlength="50" required>
             </div>
 
             <div class="form-group">
@@ -60,12 +60,12 @@
 
             <div class="form-group">
                 <label for="product-price" class="form-label">売価</label>
-                <input type="text" name="price" class="form-control" id="product-price" placeholder="価格を入力してください" required>
+                <input type="text" name="price" class="form-control" id="product-price" value="{{old('price')}}" placeholder="価格を入力してください" required>
             </div>
 
             <div class="form-group">
                 <label for="product-detail" class="form-label">商品詳細</label>
-                <textarea class="w-100" name="item_detail" id="product-detail" rows="5" placeholder="商品の詳細を入力してください" maxlength="191" required></textarea>
+                <textarea class="w-100" name="item_detail" id="product-detail" rows="5" placeholder="商品の詳細を入力してください" maxlength="191" required>{{old('item_detail')}}</textarea>
             </div>
 
             <div class="form-group text-center">

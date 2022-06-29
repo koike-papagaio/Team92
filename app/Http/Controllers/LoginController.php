@@ -24,8 +24,8 @@ class LoginController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'email' => 'required|email:rfc,dns|max:191',
-                'password' => 'required|string|max:128',
+                'email' => ['required','email:rfc,dns','string','max:191'],
+                'password' => ['required','string','max:128'],
             ],
         );
 

@@ -1,5 +1,5 @@
 /* バリデーションのエラーメッセージ */
-.alert-danger ul{
+.alert-danger ul {
     margin: 1rem 0;
 }
 
@@ -60,9 +60,9 @@
 }
 
 .edit-container .image-area p {
-    height: 148px;
+    height: 100px;
     text-align: center;
-    padding: 50px;
+    padding: 30px;
 }
 
 .edit-container .image-area img {

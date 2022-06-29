@@ -43,7 +43,11 @@
                     <td scope="row">{{$value->id}}</td>
                     <td>{{$value->category_name}}</td>
                     <td>{{$value->name}}</td>
+                    @if(empty($value->image1))
+                    <td>画像が登録されていません</td>
+                    @else
                     <td><img src="{{$value->image1}}" alt=""></td>
+                    @endif
                     <td>{{$value->price}}円</td>
                     <td>{{$value->item_detail}}</td>
                     @if($value->sales_status == 0)

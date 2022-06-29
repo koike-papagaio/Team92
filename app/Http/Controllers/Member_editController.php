@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Validation\Rule;
+
 use App\Models\User;
 
 class Member_editController extends Controller
@@ -21,11 +23,17 @@ class Member_editController extends Controller
         $user_admin = session()->get("admin");
 
         // セッションの値が無い場合
-        if (empty($user_id) || empty($user_admin)) {
+        if (!isset($user_id) || !isset($user_admin)) {
             // viewの'/login'に戻る
             return redirect('/login');
         }
-        
+
+        // セッションのidの値と$requestで受け取ったidが異なる場合->ログインしたユーザーが他のユーザーの情報を編集するのを防ぐ
+        if ($user_id != $request->id) {
+            // viewの'/login'に戻る
+            return redirect('/login');
+        }
+
         // usersテーブルのidから該当のデータを取ってくる
         $user = User::where('id', '=', $request->id)->first();
 
@@ -44,11 +52,11 @@ class Member_editController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|string|max:30',
-                'address' => 'required|string|max:191',
-                'email' => 'required|email:rfc,dns|max:191',
-                'password' => 'nullable|string|max:128',
-                'pay_limit' => 'required|integer',
+                'name' => ['required','string','max:30'],
+                'address' => ['required','string','max:191'],
+                'email' => ['required','email:rfc,dns','string','max:191',Rule::unique('users')->ignore($user->id)],
+                'password' => ['nullable','string','max:128'],
+                'pay_limit' => ['required','integer'],
             ],
         );
 

@@ -2,6 +2,7 @@
     <title>購入完了画面</title>
 </head>
 
+
 <body>
     <div class="zentai">
         ----------

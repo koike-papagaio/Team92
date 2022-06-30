@@ -11,4 +11,11 @@ return [
             'stop'  => '1',
         ],
 
+        // userテーブルのadmin
+        // 管理者ユーザー（administrator）：admin = 1
+        // 一般ユーザー（general）：admin = 0
+        'admin' => [
+            'administrator' => '1',
+            'general' => '0',
+        ],
 ];

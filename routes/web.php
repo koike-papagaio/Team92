@@ -53,5 +53,5 @@ Route::get('/product_delete/{id}', [App\Http\Controllers\Product_managementContr
 // 購入履歴画面
 Route::get('/buy_history', [App\Http\Controllers\Buy_historyController::class, 'index'])->name('buy_history');
 
-// 購入情報画面
 Route::get('/purchase_information', [App\Http\Controllers\Purchase_informationController::class, 'index'])->name('purchase_information');
+Route::post('/purchase_information/update/{id}', [App\Http\Controllers\Purchase_informationController::class, 'update'])->name('status/change');

@@ -25,6 +25,7 @@ class CreateBuysTable extends Migration
             $table->integer('quantity');
             $table->integer('payment');
             $table->integer('bought_num');
+            // $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

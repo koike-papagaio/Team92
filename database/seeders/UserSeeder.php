@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -19,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => '江戸川 コナン',
             'address' => '東京都米花市米花町2丁目21番地',
             'email' => 'example1@gmail.com',
-            'password' => Hash::make('siniti'),
+            'password' => 'siniti',
             'pay_limit' => '200000',
             'admin' => '1',
         ]);
@@ -27,7 +26,7 @@ class UserSeeder extends Seeder
             'name' => '鈴木 園子',
             'address' => '東京都米花市',
             'email' => 'example2@gmail.com',
-            'password' => Hash::make('suzukisonoko'),
+            'password' => 'suzukisonoko',
             'pay_limit' => '999999999',
             'admin' => '0',
         ]);
@@ -35,7 +34,7 @@ class UserSeeder extends Seeder
             'name' => '服部 平次',
             'address' => '大阪府寝屋川市',
             'email' => 'example3@gmail.com',
-            'password' => Hash::make('seyakatekudo'),
+            'password' => 'seyakatekudo',
             'pay_limit' => '190000',
             'admin' => '0',
         ]);

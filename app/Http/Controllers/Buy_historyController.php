@@ -14,7 +14,9 @@ class Buy_historyController extends Controller
     */
     public function index(Request $request)
     {
-        $buys = Buy::get();
+        $buys = Buy::where('user_id',1)->get();
+        // ->where('bought_num',2022060001)
+
         return view('buy.buy_history', [
             'buys' => $buys,
         ]);

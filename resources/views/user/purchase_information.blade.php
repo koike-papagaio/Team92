@@ -9,6 +9,11 @@
 <body>
     <!-- 表題 -->
     <div>購入情報管理</div>
+
+    
+        <!-- <input type="text" placeholder="キーワードを入力してください">
+        <button type="button">検索</button> -->
+        
     <!-- テーブル -->
     <div>        
         <table class="table table-striped task-table">
@@ -26,7 +31,7 @@
                     <td>値段</td>
                     <td>数量</td>
                     <td>支払い方法</td>
-                    <td>発注状況</td>
+                    <!-- <td>発注状況</td> -->
                 </tr>
 
                 @foreach ($buys as $buy)
@@ -41,8 +46,28 @@
                     <td>{{ $buy->item_name }}</td>
                     <td>{{ $buy->price }}</td>
                     <td>{{ $buy->quantity }}</td>
-                    <td>{{ $buy->payment }}</td>
-                    <td><button type="button">発注未</button></td>
+                    <!-- 支払い方法 -->
+                    @if($buy->payment == 1)
+                    <td>代引き</td>
+                    @elseif($buy->payment == 2)
+                    <td>コンビニ支払い</td>
+                    @elseif($buy->payment == 3)
+                    <td>クレジットカード</td>
+                    @endif
+
+                    <!-- 発注状況
+                    @if($buy->status == 0)
+                    <td>
+                        <form method="post" action="{{ url('/purchase_information/update/{id}') }}" >
+                        @csrf    
+                            <input type="submit" value="発注未">
+                        </form>
+                    </td>
+                    @else
+                    <td>    
+                        <button type="button" name="add">発注済</button>
+                    </td>
+                    @endif -->
                 </tr>
                 @endforeach
             </tbody>

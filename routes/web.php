@@ -21,9 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('views.index');
+
+// 買い物かご画面
 Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('buy.basket');
 Route::get('/basket/{id}', [App\Http\Controllers\BasketController::class, 'destroy'])->name('buy.index');
+
+// 購入確認画面
 Route::get('/confirmation', [App\Http\Controllers\ConfirmationController::class, 'confirmation'])->name('buy.confirmation');
+
+// 購入完了画面
 Route::get('/completed', [App\Http\Controllers\CompletedController::class, 'completed'])->name('buy.completed');
 
 // 会員登録画面

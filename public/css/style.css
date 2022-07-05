@@ -1,3 +1,4 @@
+/* 共通部分 */
 a {
     text-decoration: none;
     color: black;
@@ -8,7 +9,10 @@ a:hover {
 li {
     list-style: none;
 }
+/* 共通部分end */
 
+
+/* 商品一覧、商品詳細共通 */
 .top-container {
     margin: 0 auto;   
     width: 90%;
@@ -17,7 +21,10 @@ li {
     padding-top: 40px;
     padding-bottom: 30px;
 }
+/* 商品一覧、商品詳細共通end */
 
+
+/* 商品一覧画面 */
 .form-container {
     padding-top: 30px;
     position: relative;
@@ -76,4 +83,13 @@ li {
 
 .paginate-container {
     margin: 0 auto;
+}
+/* 商品一覧画面end */
+
+
+/* 商品詳細画面 */
+.detail-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
 }

@@ -15,6 +15,7 @@
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
     <x-Header/>
@@ -25,7 +26,16 @@
 
     <div class="detail-container">
         <div class="detail-left">
-
+            <div class="mainImage mainItem">
+                <img class="product-image" src="{{ asset('testimg/testimg.png') }}" alt="">
+            </div>
+            <div class="thumbnails subItem">
+                <img src="{{ 'testimg/testimg2.png' }}" alt="">
+                <img src="{{ 'testimg/testimg3.png' }}" alt="">
+                <img src="{{ 'testimg/testimg4.png' }}" alt="">
+                <img src="{{ 'testimg/testimg5.png' }}" alt="">
+                <img src="{{ 'testimg/testimg6.png' }}" alt="">
+            </div>
         </div>
 
         <div class="detail-right">
@@ -52,7 +62,10 @@
             </form>
 
             <div class="explanation">
-                <h2>商品説明</h2>
+                <div>
+                    <h2>商品説明</h2>
+                </div>
+
                 <p>{{$item->item_detail}}</p>
             </div>
         </div>

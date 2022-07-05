@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 
 class LoginController extends Controller
 {
@@ -49,6 +50,10 @@ class LoginController extends Controller
             //セッションをセット(idとadmin)
             $request->session()->put([
                 "id" => $user->id,
+                "name" => $user->name,
+                "address" => $user->address,
+                "email" => $user->email,
+                "pay_limit" => $user->pay_limit,
                 "admin" => $user->admin,
             ]);
 
@@ -64,5 +69,13 @@ class LoginController extends Controller
             // viewの'/login'に戻る
             return view('auth/login',['login_error' => '1']);
         }
+    }
+
+    public function logout(Request $request) {
+
+        // セッション削除
+        $request->session()->flush();
+
+        return redirect('/');
     }
 }

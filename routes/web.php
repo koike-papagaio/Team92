@@ -17,13 +17,19 @@ use App\Http\Controllers\CompletedController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('views.index');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('index');
+Route::get('/product_detail/{id}', [\App\Http\Controllers\ProductController::class, 'product_detail']);
+
+Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+// 買い物かご画面
 Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('buy.basket');
 Route::get('/basket/{id}', [App\Http\Controllers\BasketController::class, 'destroy'])->name('buy.index');
+
+// 購入確認画面
 Route::get('/confirmation', [App\Http\Controllers\ConfirmationController::class, 'confirmation'])->name('buy.confirmation');
+
+// 購入完了画面
 Route::get('/completed', [App\Http\Controllers\CompletedController::class, 'completed'])->name('buy.completed');
 
 // 会員登録画面
@@ -38,20 +44,20 @@ Route::post('/member_edit', [App\Http\Controllers\Member_editController::class, 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 
-// 商品登録画面
-Route::get('/product_register', [App\Http\Controllers\Product_registerController::class, 'index']);
-Route::post('/product_register', [App\Http\Controllers\Product_registerController::class, 'register']);
+// // 商品登録画面
+// Route::get('/product_register', [App\Http\Controllers\Product_registerController::class, 'index']);
+// Route::post('/product_register', [App\Http\Controllers\Product_registerController::class, 'register']);
 
-// 商品編集画面
-Route::get('/product_edit/{id}', [App\Http\Controllers\Product_editController::class, 'index']);
-Route::post('/product_edit', [App\Http\Controllers\Product_editController::class, 'edit']);
+// // 商品編集画面
+// Route::get('/product_edit/{id}', [App\Http\Controllers\Product_editController::class, 'index']);
+// Route::post('/product_edit', [App\Http\Controllers\Product_editController::class, 'edit']);
 
-// 商品管理画面
-Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);
-Route::get('/product_delete/{id}', [App\Http\Controllers\Product_managementController::class, 'delete']);
+// // 商品管理画面
+// Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);
+// Route::get('/product_delete/{id}', [App\Http\Controllers\Product_managementController::class, 'delete']);
 
 // 購入履歴画面
 Route::get('/buy_history', [App\Http\Controllers\Buy_historyController::class, 'index'])->name('buy_history');
 
-// 購入情報画面
 Route::get('/purchase_information', [App\Http\Controllers\Purchase_informationController::class, 'index'])->name('purchase_information');
+Route::post('/purchase_information/update/{id}', [App\Http\Controllers\Purchase_informationController::class, 'update'])->name('status/change');

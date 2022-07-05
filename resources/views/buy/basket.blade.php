@@ -3,10 +3,10 @@
 </head>
 
 <body>
+    <!-- ヘッダー読み込み -->
+    <x-Header/>
+    
     <div class="zentai">
-        ----------
-        ヘッダー
-        ----------
         <div class="body">
             <form action="{{ route('buy.basket')}}">
                 <div class="midasi">
@@ -34,10 +34,10 @@
                         </tr>
                     @endforeach
                         <tr align="right">
-                            <th colspan="4">合計金額:{{$aa->total}}円</th>
+                            <th colspan="4">合計金額:{{$money->total}}円</th>
                         </tr>
                         <div class="button">
-                            <a href="{{ route('views.index')}}">お買い物を続ける</a>
+                            <a href="{{ route('index')}}">お買い物を続ける</a>
                             <a href="{{ route('buy.confirmation')}}">購入手続きへ進む</a>
                         </div> 
                 </table>

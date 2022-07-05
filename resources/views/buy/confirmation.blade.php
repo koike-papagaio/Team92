@@ -59,11 +59,11 @@
                 <div class="choice">
                     <label for="radio01" class="text">お支払方法の選択</label><br>
                     <input class="form-check-input" class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1">
-                    <label for="inlineRadio01" class="form-check-label">コンビニ決済</label>
+                    <label for="inlineRadio01" class="form-check-label">代引き</label>
                     <input class="form-check-input" class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" checked="checked">
-                    <label for="inlineRadio02" class="form-check-label">クレジット</label>
+                    <label for="inlineRadio02" class="form-check-label">コンビニ支払い</label>
                     <input class="form-check-input" class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3">
-                    <label for="inlineRadio03" class="form-check-label">代引き</label>
+                    <label for="inlineRadio03" class="form-check-label">クレジット</label>
                 </div>
             </div>
             <div class="button">

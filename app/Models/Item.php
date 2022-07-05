@@ -20,4 +20,9 @@ class Item extends Model
         'item_detail',
         'sales_status',
     ];
+
+    public function category() {
+
+        return $this->belongsTo(Category::class);
+    }
 }

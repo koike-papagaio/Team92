@@ -12,4 +12,16 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function getCategoryList() {
+
+        $categorys = Category::pluck('name', 'id');
+
+        return $categorys;
+    }
+
+    public function items() {
+
+        return $this->hasMany(Item::class);
+    }
 }

@@ -44,20 +44,21 @@
                 <p>¥{{$item->price}}</p>
             </div>
 
-            <form action="{{ route('buy.basket') }}">
-                <select class="form-select" name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
+            <form method="post" action="{{ route('add.basket') }}">
+                @csrf
+                <select class="form-select" name="quantity" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select>
-
+                <input type="hidden" name="item_id" value="{{ $item->id }}">
                 <input class="btn btn-outline-secondary" type="submit" value="カートに追加">
             </form>
 

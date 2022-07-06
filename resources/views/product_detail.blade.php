@@ -30,11 +30,11 @@
                 <img class="product-image" src="{{ asset('testimg/testimg.png') }}" alt="">
             </div>
             <div class="thumbnails subItem">
-                <img src="{{ 'testimg/testimg2.png' }}" alt="">
-                <img src="{{ 'testimg/testimg3.png' }}" alt="">
-                <img src="{{ 'testimg/testimg4.png' }}" alt="">
-                <img src="{{ 'testimg/testimg5.png' }}" alt="">
-                <img src="{{ 'testimg/testimg6.png' }}" alt="">
+                <img src="{{ asset('testimg/testimg2.png') }}" alt="">
+                <img src="{{ asset('testimg/testimg3.png') }}" alt="">
+                <img src="{{ asset('testimg/testimg4.png') }}" alt="">
+                <img src="{{ asset('testimg/testimg5.png') }}" alt="">
+                <img src="{{ asset('testimg/testimg6.png') }}" alt="">
             </div>
         </div>
 

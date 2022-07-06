@@ -7,7 +7,7 @@
             <!-- 管理者画面 -->
             <div class="dropdown pe-5">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        
+                        {{ Session::get('name') }}様
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="{{ url('product_management') }}">商品管理</a></li>
@@ -18,7 +18,6 @@
             </div>
         @else
             <!-- 会員画面 -->
-            
                 <div class="dropdown pe-5">
                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Session::get('name') }}様
@@ -31,7 +30,10 @@
                 </div>
 
                 <!-- カートアイコン -->
-                
+                <div class="cart-icon">
+                    <a href=""><img src="{{ asset('iconimg/cart.jpeg') }}" alt=""></a>
+                </div>
+            
         @endif
     @else
     <div class="dropdown pe-5">

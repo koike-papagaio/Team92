@@ -11,6 +11,20 @@ li {
 }
 /* 共通部分end */
 
+header {
+    position: relative;
+}
+
+
+.cart-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 55px;
+}
+.cart-icon img {
+    height: 100%;
+}
 
 /* 商品一覧、商品詳細共通 */
 .top-container {

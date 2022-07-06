@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Cart;
+use App\Models\User;
 use App\Models\Category;
 
 class ProductController extends Controller
@@ -54,5 +56,26 @@ class ProductController extends Controller
         $item = Item::where('id', "=", $request->id)->first();
 
         return view('/product_detail', ['item' => $item,]);
+    }
+    public function add(Request $request){
+
+        $user = User::where('id',"=",session()->get('id'))->first();
+        $item = Item::where('id',"=",$request->item_id)->first();
+        
+        $cart = new Cart;
+        $cart->fill([
+            "user_id" => $user->id,
+            "user_name" => $user->name,
+            "address" => $user->address,
+            "email" => $user->email,
+            "image1" => $item->image1,
+            "item_name" => $item->name,
+            "price" => $item->price,
+            "quantity" => $request->quantity
+        ]);
+        //２．Buy をsave
+        $cart->save();
+
+        return redirect('/basket');
     }
 }

@@ -15,7 +15,7 @@ class CompletedController extends Controller
     public function completed(Request $request)
     {
         //１．Cart の中身を Buy に移す（支払い方法などの入力値含む）
-        $user_id = 1; //テスト用
+        $user_id = session()->get("id");
         
         $carts = Cart::where('user_id',"=",$user_id)->get();
         

@@ -14,7 +14,7 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-
+    <x-Header/>
     <!-- ログイン -->
     <div class="login-container w-50" style="margin: auto;">
 

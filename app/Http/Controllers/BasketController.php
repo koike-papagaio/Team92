@@ -14,9 +14,8 @@ class BasketController extends Controller
      */
     public function basket(Request $request)
     {
-        $user_id = $request->session()->get('id');
-        //$user_id = 1; //テスト用
-        dd($user_id);
+        $user_id = session()->get("id");
+
         $carts = Cart::where('user_id',"=",$user_id)->get();
         //１．金額の集計を変数にセットする
         $money = Cart::selectRaw('SUM(price * quantity) as total')
@@ -34,8 +33,7 @@ class BasketController extends Controller
         $carts = Cart::find($id);
         $carts->delete();
 
-        $user_id = $request->session()->get('id');
-        //$user_id = 1; //テスト用
+        $user_id = session()->get('id');
         
         $carts = Cart::where('user_id',"=",$user_id)->get();
         //１．金額の集計を変数にセットする

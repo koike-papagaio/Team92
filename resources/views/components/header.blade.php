@@ -10,10 +10,10 @@
                         
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">商品管理/a></li>
-                        <li><a class="dropdown-item" href="#">商品登録</a></li>
-                        <li><a class="dropdown-item" href="#">購入情報管理</a></li>
-                        <li><a class="dropdown-item" href="#">ログアウト</a></li>
+                        <li><a class="dropdown-item" href="{{ url('product_management') }}">商品管理</a></li>
+                        <li><a class="dropdown-item" href="{{ url('product_register') }}">商品登録</a></li>
+                        <li><a class="dropdown-item" href="{{ url('purchase_information') }}">購入情報管理</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a></li>
                     </ul>
             </div>
         @else
@@ -24,8 +24,8 @@
                     {{ Session::get('name') }}様
                 </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">会員編集</a></li>
-                        <li><a class="dropdown-item" href="#">購入履歴</a></li>
+                        <li><a class="dropdown-item" href="{{ url('member_edit/'.Session::get('id')) }}">会員編集</a></li>
+                        <li><a class="dropdown-item" href="{{ url('buy_history') }}">購入履歴</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a></li>
                     </ul>
                 </div>

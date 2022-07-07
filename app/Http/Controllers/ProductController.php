@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index(Request $request){
 
         $category = new Category;
-        $categorys = $category->getCategoryList();
+        $categories = $category->getCategoryList();
         $categoryId = $request->input('categoryId');
         $keyword = $request->input('keyword');
         $order = $request->order;
@@ -45,7 +45,7 @@ class ProductController extends Controller
         return view('index', [
             'item' => $item,
             'keyword' => $keyword,
-            'categorys' => $categorys,
+            'categories' => $categories,
             'categoryId' => $categoryId,
             'order' => $order,
         ]);

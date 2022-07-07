@@ -78,7 +78,7 @@ class Member_editController extends Controller
         // データを保存する
         $user->save();
 
-        // viewの'/login'に戻る
-        return redirect('/login');
+        // viewのトップページに戻る
+        return redirect('/');
     }
 }

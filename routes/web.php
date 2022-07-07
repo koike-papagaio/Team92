@@ -19,6 +19,7 @@ use App\Http\Controllers\CompletedController;
 
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('index');
 Route::get('/product_detail/{id}', [\App\Http\Controllers\ProductController::class, 'product_detail']);
+Route::post('/product_detail/add', [\App\Http\Controllers\ProductController::class, 'add'])->name('add.basket');
 
 Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
@@ -44,15 +45,16 @@ Route::post('/member_edit', [App\Http\Controllers\Member_editController::class, 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 
-// 商品登録画面
+// // 商品登録画面
 Route::get('/product_register', [App\Http\Controllers\Product_registerController::class, 'index']);
 Route::post('/product_register', [App\Http\Controllers\Product_registerController::class, 'register']);
 
-// 商品編集画面
+// // 商品編集画面
 Route::get('/product_edit/{id}', [App\Http\Controllers\Product_editController::class, 'index']);
 Route::post('/product_edit', [App\Http\Controllers\Product_editController::class, 'edit']);
 
-// 商品管理画面
+// // 商品管理画面
+
 Route::get('/product_management', [App\Http\Controllers\Product_managementController::class, 'index']);
 Route::get('/product_delete/{id}', [App\Http\Controllers\Product_managementController::class, 'delete']);
 

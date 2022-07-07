@@ -34,15 +34,15 @@
                     <select class="form-select" name="categoryId" value="{{ $categoryId }}">
                         <option value="">すべて</option>
 
-                        @foreach ($categorys as $id => $name)
+                        @foreach ($categories as $id => $name)
                             <option value="{{ $id }}">
                                 {{ $name }}
                             </option>
                         @endforeach
                     </select>
                 </div>
-                <input class="form-control serch-text" type="text" name="keyword" value="{{$keyword}}" autocomplete="off">
-                <input class="btn btn-outline-secondary serch-btn" type="submit" value="検索">
+                <input class="form-control search-text" type="text" name="keyword" value="{{$keyword}}" autocomplete="off">
+                <input class="btn btn-outline-secondary search-btn" type="submit" value="検索">
             </form>
         </div>
     </div>

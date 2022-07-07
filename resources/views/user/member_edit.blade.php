@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS読み込み publicフォルダから-->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>   
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- ヘッダー読み込み -->
+    <x-Header/>
 
     <!-- 会員編集 -->
-    <div class="member_edit-container w-50" style="margin: auto;">
+    <div class="member_edit-container w-50">
 
         <!-- バリデーションのエラーメッセージ -->
         @if ($errors->any())
@@ -50,7 +55,7 @@
 
             <div class="form-group">
                 <label for="user-password" class="form-label">パスワード</label>
-                <input type="password" name="password" class="form-control" id="user-password" placeholder="パスワードを変更する場合入力してください" maxlength="128">
+                <input type="password" name="password" class="form-control" id="user-password" placeholder="パスワードを変更の場合入力してください" maxlength="128">
             </div>
 
             <div class="form-group">
@@ -59,8 +64,8 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success" style="width:100px;">変更する</button>
-                <button class="btn btn-success" style="width:100px;"><a href="/login">戻る</a></button>
+                <button type="submit" class="btn btn-success">変更する</button>
+                <button class="btn btn-info"><a href="/">戻る</a></button>
             </div>
         </form>
     </div>

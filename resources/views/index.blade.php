@@ -64,7 +64,7 @@
             <ul class="product-list">
                 @forelse ($item as $value)
                     <li class="product"><a href="/product_detail/{{$value->id}}">
-                        <img class="product-image" src="{{ 'testimg/testimg.png' }}" alt="画像">
+                        <img class="product-image" src="{{ $value->image1 }}" alt="画像">
                         <div class="product-body">
                             <p>{{$value->name}}</p>
                             <p>¥{{$value->price}}</p>

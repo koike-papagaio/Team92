@@ -27,14 +27,12 @@
     <div class="detail-container">
         <div class="detail-left">
             <div class="mainImage mainItem">
-                <img src="{{ asset('testimg/testimg.png') }}" alt="">
+                <img src="{{ $item->image1 }}" alt="">
             </div>
             <div class="thumbnails subItem">
-                <img src="{{ asset('testimg/testimg2.png') }}" alt="">
-                <img src="{{ asset('testimg/testimg3.png') }}" alt="">
-                <img src="{{ asset('testimg/testimg4.png') }}" alt="">
-                <img src="{{ asset('testimg/testimg5.png') }}" alt="">
-                <img src="{{ asset('testimg/testimg6.png') }}" alt="">
+                <img src="{{ $item->image2 }}" alt="">
+                <img src="{{ $item->image3 }}" alt="">
+                <img src="{{ $item->image4 }}" alt="">
             </div>
         </div>
 

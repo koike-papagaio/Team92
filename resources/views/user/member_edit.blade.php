@@ -21,7 +21,7 @@
     <!-- ヘッダー読み込み -->
     <x-Header/>
     <!-- 会員編集 -->
-    <div class="member_edit-container w-50" style="margin: auto;">
+    <div class="member-container w-50" style="margin: auto;">
 
         <!-- バリデーションのエラーメッセージ -->
         @if ($errors->any())
@@ -40,30 +40,30 @@
             <input type="text" class="form-control" name="id" value="{{$user->id}}" hidden>
             <div class="form-group ">
                 <label for="user-name" class="form-label">お名前</label>
-                <input type="text" name="name" class="form-control" id="user-name" value="{{$user->name}}" maxlength="30" required autofocus>
+                <input type="text" name="name" class="form-control member-information" id="user-name" value="{{$user->name}}" maxlength="30" required autofocus>
             </div>
 
             <div class="form-group">
                 <label for="user-address" class="form-label">住所</label>
-                <input type="text" name="address" class="form-control" id="user-address" value="{{$user->address}}" maxlength="191" required>
+                <input type="text" name="address" class="form-control member-information" id="user-address" value="{{$user->address}}" maxlength="191" required>
             </div>
 
             <div class="form-group">
                 <label for="user-email" class="form-label">メールアドレス</label>
-                <input type="email" name="email" class="form-control" id="user-email" value="{{$user->email}}" maxlength="191" required>
+                <input type="email" name="email" class="form-control member-information" id="user-email" value="{{$user->email}}" maxlength="191" required>
             </div>
 
             <div class="form-group">
                 <label for="user-password" class="form-label">パスワード</label>
-                <input type="password" name="password" class="form-control" id="user-password" placeholder="パスワードを変更する場合入力してください" maxlength="128">
+                <input type="password" name="password" class="form-control member-information" id="user-password" placeholder="パスワードを変更する場合入力してください" maxlength="128">
             </div>
 
             <div class="form-group">
                 <label for="user-pay_limit" class="form-label">使用限度額の設定</label>
-                <input type="text" name="pay_limit" class="form-control" id="user-pay_limit" value="{{$user->pay_limit}}" required>
+                <input type="text" name="pay_limit" class="form-control member-information" id="user-pay_limit" value="{{$user->pay_limit}}" required>
             </div>
 
-            <div class="form-group text-center">
+            <div class="form-group text-center edit-btn">
                 <button type="submit" class="btn btn-success" style="width:100px;">変更する</button>
                 <button class="btn btn-success" style="width:100px;"><a href="/">戻る</a></button>
             </div>

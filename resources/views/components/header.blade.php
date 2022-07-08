@@ -18,7 +18,7 @@
             </div>
         @else
             <!-- 会員画面 -->
-                <div class="dropdown pe-5">
+                <div class="dropdown pe-5 drop-login">
                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Session::get('name') }}様
                 </button>
@@ -31,7 +31,7 @@
 
                 <!-- カートアイコン -->
                 <div class="cart-icon">
-                    <a href=""><img src="{{ asset('iconimg/cart.jpeg') }}" alt=""></a>
+                    <a href="{{ route('buy.basket') }}"><img src="{{ asset('iconimg/cart.jpeg') }}" alt=""></a>
                 </div>
             
         @endif

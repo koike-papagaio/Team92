@@ -20,12 +20,11 @@
     <!-- ヘッダー読み込み -->
     <x-Header/>
     <!-- 表題 -->
-    <div>
-
-        <h1>購入履歴</h1>
+    <div class="history-top">
+        <h2>購入履歴</h2>
     </div>
-    <div>
-        <table class="table table-striped task-table">
+    <div class="history-main">
+        <table class="table table-bordered">
 
             <!-- テーブル本体 -->
             <tbody>
@@ -55,7 +54,7 @@
                     @elseif($buy->payment == 3)
                     <td>クレジットカード</td>
                     @endif
-                    <td></td>
+                    <!-- <td></td> -->
                     <!-- @if($buy->status == 0)
                     <td>発注未</td>
                     @elseif($buy->status == 1)

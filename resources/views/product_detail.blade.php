@@ -27,7 +27,7 @@
     <div class="detail-container">
         <div class="detail-left">
             <div class="mainImage mainItem">
-                <img class="product-image" src="{{ asset('testimg/testimg.png') }}" alt="">
+                <img src="{{ asset('testimg/testimg.png') }}" alt="">
             </div>
             <div class="thumbnails subItem">
                 <img src="{{ asset('testimg/testimg2.png') }}" alt="">
@@ -39,14 +39,17 @@
         </div>
 
         <div class="detail-right">
-            <div>
+            <div class="item-name">
                 <p>{{$item->name}}</p>
+            </div>
+
+            <div class="item-price">
                 <p>¥{{$item->price}}</p>
             </div>
 
-            <form method="post" action="{{ route('add.basket') }}">
+            <form class="item-form" method="post" action="{{ route('add.basket') }}">
                 @csrf
-                <select class="form-select" name="quantity" id="">
+                <select class="form-select item-quantity" name="quantity" id="">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -63,7 +66,7 @@
             </form>
 
             <div class="explanation">
-                <div>
+                <div class="explanation-title">
                     <h2>商品説明</h2>
                 </div>
 
@@ -71,5 +74,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function(){
+            $('.subItem img').click(function(){
+                // サムネイルの取得
+                let $thisImg = $(this).attr('src');
+                let $thisAlt = $(this).attr('alt');
+
+                // メインイメージの取得
+                let $mainImg = $(".mainItem img").attr('src');
+                let $mainAlt = $(".mainItem img").attr('alt');
+
+                // メインイメージを一度非表示にする（アニメーション付与のため）
+                $('.mainItem img').hide();
+
+                // メインイメージとサムネイルを切り替える
+                $('.mainItem img').attr({src:$thisImg,alt:$thisAlt}).fadeIn(500);
+                $(this).attr({src:$mainImg,alt:$mainAlt});
+            });
+        });
+    </script>
 </body>
 </html>

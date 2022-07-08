@@ -10,7 +10,8 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         $category = new Category;
         $categories = $category->getCategoryList();
@@ -31,17 +32,17 @@ class ProductController extends Controller
         switch ($order) {
             case 'desc':
                 $item = $query->orderBy('id', 'desc')->paginate(18);
-            break;
+                break;
 
             case 'asc':
                 $item = $query->orderBy('id', 'asc')->paginate(18);
-            break;
+                break;
             
             default :
-            $item = $query->orderBy('id', 'desc')->paginate(18);
-            break;
+                $item = $query->orderBy('id', 'desc')->paginate(18);
+                break;
         }
-        
+
         return view('index', [
             'item' => $item,
             'keyword' => $keyword,
@@ -51,17 +52,29 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product_detail(Request $request){
+    public function product_detail(Request $request)
+    {
 
         $item = Item::where('id', "=", $request->id)->first();
 
         return view('/product_detail', ['item' => $item,]);
     }
-    public function add(Request $request){
+    public function add(Request $request)
+    {
+        // if文でログインチェック
+        // sessionなかったらログイン画面に飛ばす
+        // ログインの段階で保存したセッションの値(id)を取得する
+        $user_id = session()->get("id");
 
-        $user = User::where('id',"=",session()->get('id'))->first();
-        $item = Item::where('id',"=",$request->item_id)->first();
-        
+        // セッションの値が無い場合
+        if (!isset($user_id)) {
+            // viewの'/login'に戻る
+            return redirect('/login');
+        }
+
+        $user = User::where('id', "=", session()->get('id'))->first();
+        $item = Item::where('id', "=", $request->item_id)->first();
+
         $cart = new Cart;
         $cart->fill([
             "user_id" => $user->id,

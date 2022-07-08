@@ -452,6 +452,10 @@ header .menu-area {
     margin: 40px auto;
 }
 
+.login-container .form-group label {
+    font-weight: bold;
+}
+
 .login-container .form-group button {
     width: 100px;
     margin-top: 20px;
@@ -462,6 +466,10 @@ header .menu-area {
     margin: 40px auto;
 }
 
+.member_register-container .form-group label {
+    font-weight: bold;
+}
+
 .member_register-container .form-group button {
     width: 100px;
     margin-top: 20px;
@@ -470,6 +478,10 @@ header .menu-area {
 /* 会員編集画面 */
 .member_edit-container {
     margin: 40px auto;
+}
+
+.member_edit-container .form-group label {
+    font-weight: bold;
 }
 
 .member_edit-container .form-group button {
@@ -541,6 +553,10 @@ header .menu-area {
     margin-bottom: 2rem;
 }
 
+.register-container .form-group label {
+    font-weight: bold;
+}
+
 .register-container .form-group .product-file {
     height: auto;
 }
@@ -561,6 +577,10 @@ header .menu-area {
 
 .edit-container .form-group {
     margin-bottom: 2rem;
+}
+
+.edit-container .form-group label {
+    font-weight: bold;
 }
 
 .edit-container .image-area {

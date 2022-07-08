@@ -52,11 +52,11 @@ class Member_editController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => ['required','string','max:30'],
-                'address' => ['required','string','max:191'],
-                'email' => ['required','email:rfc,dns','string','max:191',Rule::unique('users')->ignore($user->id)],
-                'password' => ['nullable','string','max:128'],
-                'pay_limit' => ['required','integer'],
+                'name' => ['required', 'string', 'max:30'],
+                'address' => ['required', 'string', 'max:191'],
+                'email' => ['required', 'email:rfc,dns', 'string', 'max:191', Rule::unique('users')->ignore($user->id)],
+                'password' => ['nullable', 'string', 'max:128'],
+                'pay_limit' => ['required', 'integer'],
             ],
         );
 

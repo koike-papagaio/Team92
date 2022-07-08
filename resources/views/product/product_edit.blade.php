@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品編集画面</title>
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <!-- CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
@@ -21,10 +22,11 @@
 <body>
     <!-- ヘッダー読み込み -->
     <x-Header/>
+    
     <!-- 商品編集 -->
     <div class="edit-container w-50">
 
-        <h2 class="mb-3">商品編集</h2>
+        <h2 class="mb-5 text-center">商品編集</h2>
 
         <!-- バリデーションのエラーメッセージ -->
         @if ($errors->any())
@@ -38,7 +40,7 @@
         @endif
 
         <!-- 商品編集フォーム-->
-        <form class="" action="{{ url('product_edit') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('product_edit') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="text" class="form-control" name="id" value="{{$item->id}}" hidden>
             <div class="form-group">

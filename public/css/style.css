@@ -3,12 +3,16 @@ a {
     text-decoration: none;
     color: black;
 }
+
 a:hover {
     color: gray;
 }
+
 li {
     list-style: none;
 }
+
+
 /* 共通部分end */
 
 
@@ -34,13 +38,14 @@ header {
 
 /* 商品一覧、商品詳細共通 */
 .top-container {
-    margin: 0 auto;   
+    margin: 0 auto;
     width: 90%;
     border-bottom: rgb(116, 112, 112) solid 1px;
     text-align: center;
     padding-top: 40px;
     padding-bottom: 30px;
 }
+
 /* 商品一覧、商品詳細共通end */
 
 
@@ -49,12 +54,17 @@ header {
     padding-top: 30px;
     position: relative;
 }
-.serch-text {
+
+.search-text {
     width: 300px;
 }
-.serch-btn {
-    position: absolute;
-    right: 350px;
+
+.search-btn {
+    /* position: absolute;
+    right: 350px; */
+    color: #fff;
+    border-color: #6c757d;
+    background-color: #6c757d;
 }
 
 .product-container {
@@ -69,9 +79,11 @@ header {
     position: relative;
     padding: 30px 0;
 }
+
 .item-count {
     font-size: 18px;
 }
+
 .sort {
     position: absolute;
     right: 64px;
@@ -79,23 +91,27 @@ header {
 
 .product-list {
     display: flex;
-    justify-content:start;
+    justify-content: start;
     flex-wrap: wrap;
     padding: 0 0 0 64px;
 }
+
 .product {
     width: 180px;
     height: 260px;
     margin: 0 18px 30px 0;
 }
+
 .product img {
     width: 100%;
     height: 70%;
 }
+
 .product-body {
     text-align: left;
     padding-top: 10px;
 }
+
 .product-body p {
     margin: 0 0 8px;
     font-size: 15px;
@@ -104,6 +120,7 @@ header {
 .paginate-container {
     margin: 0 auto;
 }
+
 /* 商品一覧画面end */
 
 
@@ -322,4 +339,215 @@ header {
     width: 90%;
     margin: 0 auto;
     padding: 50px 0;
+}
+
+/* ヘッダー */
+header {
+    height: 100px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    z-index: 1;
+}
+
+header a {
+    font-family: fantasy;
+    font-size: 30px;
+}
+
+header a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+header .dropdown-menu {
+    text-align: center;
+}
+
+header .dropdown .dropdown-menu .dropdown-item {
+    font-size: 1rem;
+}
+
+header .dropdown .dropdown-menu .dropdown-item:active {
+    color: #16181b;
+    background-color: #f8f9fa;
+}
+
+/* ログイン画面 */
+.login-container {
+    margin: 40px auto;
+}
+
+.login-container .form-group button {
+    width: 100px;
+    margin-top: 20px;
+}
+
+/* 会員登録画面 */
+.member_register-container {
+    margin: 40px auto;
+}
+
+.member_register-container .form-group button {
+    width: 100px;
+    margin-top: 20px;
+}
+
+/* 会員編集画面 */
+.member_edit-container {
+    margin: 40px auto;
+}
+
+.member_edit-container .form-group button {
+    width: 100px;
+    margin: 20px 20px 0;
+}
+
+.member_edit-container .form-group button a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+/* バリデーションのエラーメッセージ */
+.alert-danger ul {
+    margin: 1rem 0;
+}
+
+.alert-danger ul li {
+    padding: 0.5rem;
+    list-style: disc;
+}
+
+/* 商品管理画面 */
+.management-container {
+    margin: 40px 0;
+}
+
+.management-container .table {
+    text-align: center;
+}
+
+.management-container .table thead {
+    background-color: #f8f9fa;
+}
+
+.management-container .table thead th {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    vertical-align: middle;
+}
+
+.management-container .table td {
+    vertical-align: middle;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.management-container .table-content img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.management-container .table-content tr {
+    height: 125px;
+}
+
+.management-container .table-content tr td a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+/* 商品登録画面 */
+.register-container {
+    margin: 40px auto;
+}
+
+.register-container .form-group {
+    margin-bottom: 2rem;
+}
+
+.register-container .form-group .product-file {
+    height: auto;
+}
+
+.register-container .form-group textarea {
+    resize: none;
+}
+
+.register-container .form-group button {
+    width: 100px;
+    margin-top: 20px;
+}
+
+/* 商品編集画面 */
+.edit-container {
+    margin: 40px auto;
+}
+
+.edit-container .form-group {
+    margin-bottom: 2rem;
+}
+
+.edit-container .image-area {
+    text-align: center;
+}
+
+.edit-container .image-area p {
+    height: 100px;
+    padding: 30px;
+}
+
+.edit-container .image-area img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.edit-container .form-group .product-file {
+    height: auto;
+    margin-top: 1rem;
+}
+
+.edit-container .form-group textarea {
+    resize: none;
+}
+
+.edit-container .form-group button {
+    width: 100px;
+}
+
+/* 購入情報管理画面 */
+.purchase_information-container {
+    margin: 40px 0;
+}
+
+.purchase_information-container .table {
+    text-align: center;
+}
+
+.purchase_information-container .table thead {
+    background-color: #f8f9fa;
+}
+
+.purchase_information-container .table thead th {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    vertical-align: middle;
+}
+
+.purchase_information-container .table td {
+    vertical-align: middle;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.purchase_information-container tbody tr {
+    height: 100px;
 }

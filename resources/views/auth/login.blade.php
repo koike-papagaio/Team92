@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success">ログイン</button>
+                <button type="submit" class="btn btn-secondary">ログイン</button>
             </div>
         </form>
     </div>

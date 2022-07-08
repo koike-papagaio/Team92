@@ -68,8 +68,8 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success">変更する</button>
-                <button class="btn btn-info"><a href="/">戻る</a></button>
+                <button type="submit" class="btn btn-secondary">変更する</button>
+                <button class="btn btn-danger"><a href="/">戻る</a></button>
             </div>
         </form>
     </div>

@@ -121,7 +121,7 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success">編集</button>
+                <button type="submit" class="btn btn-secondary">編集</button>
             </div>
         </form>
     </div>

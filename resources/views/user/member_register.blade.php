@@ -65,7 +65,7 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success">会員登録</button>
+                <button type="submit" class="btn btn-secondary">会員登録</button>
             </div>
         </form>
     </div>

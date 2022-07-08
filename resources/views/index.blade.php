@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 <input class="form-control search-text" type="text" name="keyword" value="{{$keyword}}" autocomplete="off">
-                <input class="btn btn-outline-secondary search-btn" type="submit" value="検索">
+                <input class="btn btn-secondary search-btn" type="submit" value="検索">
             </form>
         </div>
     </div>

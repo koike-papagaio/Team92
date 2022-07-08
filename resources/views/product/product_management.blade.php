@@ -61,7 +61,7 @@
                     @else
                     <td>販売停止</td>
                     @endif
-                    <td><button class="btn btn-success"><a href="/product_edit/{{$value->id}}">編集</a></button></td>
+                    <td><button class="btn btn-secondary"><a href="/product_edit/{{$value->id}}">編集</a></button></td>
                     <td><button class="btn btn-danger"><a href="/product_delete/{{$value->id}}">削除</a></button></td>
                 </tr>
                 @endforeach

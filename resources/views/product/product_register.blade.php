@@ -78,7 +78,7 @@
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary">登録</button>
+                <button type="submit" class="btn btn-secondary">登録</button>
             </div>
         </form>
     </div>

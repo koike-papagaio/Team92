@@ -21,7 +21,7 @@
     <x-Header/>
 
     <!-- ログイン -->
-    <div class="member-container w-50" style="margin: auto;">
+    <div class="login-container w-50">
 
         <!-- バリデーションのエラーメッセージ -->
         @if ($errors->any())

@@ -15,20 +15,26 @@ li {
 
 /* 共通部分end */
 
+
+/* ログイン後ヘッダー */
 header {
     position: relative;
 }
-
-
+.drop-login {
+    position: absolute;
+    right: 45px;
+}
 .cart-icon {
     position: absolute;
     top: 0;
     right: 0;
-    height: 55px;
+    height: 56px;
 }
 .cart-icon img {
     height: 100%;
 }
+/* ログイン後ヘッダーend */
+
 
 /* 商品一覧、商品詳細共通 */
 .top-container {
@@ -123,6 +129,216 @@ header {
     width: 90%;
     margin: 0 auto;
     display: flex;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.detail-left {
+    width: 50%;
+}
+.detail-right {
+    width: 50%;
+}
+
+.mainImage {
+    margin: 0 auto;
+    text-align: center;
+}
+.mainImage img {
+    width: 450px;
+    height: auto;
+    margin: 0 auto;
+}
+.thumbnails {
+    width: 450px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin: 30px auto 0;
+   }
+.thumbnails img {
+    width: 140px;
+    cursor: pointer;
+    transition: all .3s;
+    margin: 0 10px 10px 0;
+   }
+.thumbnails img:hover {
+    opacity: 0.8;
+    transition: all .3s;
+   }
+
+.item-name {
+    font-size: 30px;
+}
+.item-price {
+    font-size: 25px;
+}
+.item-form {
+    padding-top: 80px;
+}
+.item-quantity {
+    width: 75px;
+    margin-bottom:20px;
+}
+.explanation {
+    padding-top: 100px;
+}
+.explanation-title {
+    font-size: 30px;
+    border-bottom: 1px solid rgb(116, 112, 112);
+    margin-bottom: 20px;
+}
+/* 商品詳細画面end */
+
+
+/* ログイン、会員登録、会員編集画面共通 */
+.member-container {
+    padding-top: 80px;
+}
+.member-information {
+    margin-bottom: 25px;
+}
+/* ログイン、会員登録、会員編集画面共通end */
+
+/* 会員編集画面 */
+.edit-btn {
+    padding-top: 20px;
+}
+.edit-btn button {
+    margin-right: 5px;
+}
+.edit-btn a {
+    color: white;
+}
+/* 会員編集画面end */
+
+
+/* 買い物かご画面 */
+.basket-top {
+    margin: 0 auto;
+    width: 90%;
+    border-bottom: 1px solid rgb(116, 112, 112);
+    padding-top: 50px;
+}
+.basket-main {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.basket-main form {
+    width: 80%;
+    margin: 0 auto;
+}
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+}
+.basket-img {
+    width: 170px;
+    height: 200px;
+}
+.basket-item-name {
+    font-size: 25px;
+    margin: auto 0;
+}
+.basket-delete {
+    color: rgb(240, 64, 64);
+    padding: 175px 0 0;
+}
+.basket-total-price {
+    text-align: right;
+}
+.basket-btn {
+    padding: 30px 0 50px 0;
+    text-align: center;
+}
+.basket-btn a {
+    margin-right: 5px;
+}
+/* 買い物かご画面end */
+
+/* 購入確認画面 */
+.confirmation-top {
+    margin: 0 auto;
+    width: 90%;
+    border-bottom: 1px solid rgb(116, 112, 112);
+    padding-top: 50px;
+}
+.confirmation-table {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.confirmation-table table {
+    width: 80%;
+    margin: 0 auto;
+}
+.confirmation-img {
+    width: 170px;
+    height: 200px;
+}
+.confirmation-item-name {
+    font-size: 25px;
+    margin: auto;
+}
+.confirmation-total-price {
+    text-align: right;
+}
+.information-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.name, .addres, .email {
+    margin-bottom: 30px;
+}
+.information {
+    font-size: 20px;
+}
+.confirmation-btn {
+    padding: 30px 0 50px 0;
+    text-align: center;
+}
+.confirmation-btn a {
+    margin-right: 5px;
+}
+/* 購入確認画面end */
+
+/* 購入完了画面 */
+.completed-container {
+    text-align: center;
+}
+.thank {
+    padding-top: 50px;
+    font-size: 120px;
+    animation: blinking 0.8s ease-in-out infinite alternate;
+}
+@keyframes blinking {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+.complete {
+    font-size: 30px;
+}
+.completed-btn {
+    padding-top: 50px;
+}
+.completed-btn a {
+    margin-right: 5px;
+}
+/* 購入完了画面end */
+
+
+/* 購入履歴画面 */
+.history-top {
+    margin: 0 auto;
+    width: 90%;
+    border-bottom: 1px solid rgb(116, 112, 112);
+    padding-top: 50px;
+}
+.history-main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
 /* ヘッダー */

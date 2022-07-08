@@ -33,8 +33,7 @@
       <!-- カートアイコン -->
       <div class="cart-icon">
           <a href=""><img src="{{ asset('iconimg/cart.jpeg') }}" alt=""></a>
-      </div>
-            
+      </div>      
       @endif
     @else
     <div class="dropdown">

@@ -49,12 +49,12 @@
 
             <div class="form-group">
                 <label for="user-email" class="form-label">メールアドレス</label>
-                <input type="email" name="email" class="form-control" id="user-email" placeholder="メールアドレスを入力してください" maxlength="191" required autofocus>
+                <input type="email" name="email" class="form-control member-information" id="user-email" placeholder="メールアドレスを入力してください" maxlength="191" required autofocus>
             </div>
 
             <div class="form-group">
                 <label for="user-password" class="form-label">パスワード</label>
-                <input type="password" name="password" class="form-control" id="user-password" placeholder="パスワードを入力してください" maxlength="128" required>
+                <input type="password" name="password" class="form-control member-information" id="user-password" placeholder="パスワードを入力してください" maxlength="128" required>
             </div>
 
             <div class="form-group text-center">

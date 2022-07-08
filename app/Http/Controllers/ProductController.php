@@ -31,15 +31,15 @@ class ProductController extends Controller
 
         switch ($order) {
             case 'desc':
-                $item = $query->orderBy('id', 'desc')->paginate(7);
+                $item = $query->orderBy('id', 'desc')->paginate(18);
                 break;
 
             case 'asc':
-                $item = $query->orderBy('id', 'asc')->paginate(7);
+                $item = $query->orderBy('id', 'asc')->paginate(18);
                 break;
-
-            default:
-                $item = $query->orderBy('id', 'desc')->paginate(7);
+            
+            default :
+                $item = $query->orderBy('id', 'desc')->paginate(18);
                 break;
         }
 

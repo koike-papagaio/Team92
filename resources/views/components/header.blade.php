@@ -35,8 +35,7 @@
             <a href="{{ url('basket') }}"><img src="{{ asset('iconimg/cart.svg') }}" alt=""></a>
         </div>
     </div>
-
-    @endif
+      @endif
     @else
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

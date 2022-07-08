@@ -12,21 +12,20 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-
         $category = new Category;
         $categories = $category->getCategoryList();
         $categoryId = $request->input('categoryId');
         $keyword = $request->input('keyword');
         $order = $request->order;
 
-        $query = Item::query();
+        $query = Item::query()->where('sales_status', config('const.sales_status.start'));
 
         if (isset($keyword)) {
-            $query->where('name', 'LIKE', "%{$keyword}%");
+            $query->where('name', 'LIKE', "%{$keyword}%")->where('sales_status', config('const.sales_status.start'));
         }
 
         if (isset($categoryId)) {
-            $query->where('category_id', $categoryId);
+            $query->where('category_id', $categoryId)->where('sales_status', config('const.sales_status.start'));
         }
 
         switch ($order) {
@@ -37,8 +36,8 @@ class ProductController extends Controller
             case 'asc':
                 $item = $query->orderBy('id', 'asc')->paginate(18);
                 break;
-            
-            default :
+
+            default:
                 $item = $query->orderBy('id', 'desc')->paginate(18);
                 break;
         }
@@ -54,11 +53,11 @@ class ProductController extends Controller
 
     public function product_detail(Request $request)
     {
-
         $item = Item::where('id', "=", $request->id)->first();
 
         return view('/product_detail', ['item' => $item,]);
     }
+
     public function add(Request $request)
     {
         // if文でログインチェック

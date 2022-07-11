@@ -20,5 +20,6 @@ class Buy extends Model
         'quantity',
         'payment',
         'bought_num',
+        'status',
     ];
 }

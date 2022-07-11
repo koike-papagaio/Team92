@@ -86,9 +86,8 @@ class Member_editController extends Controller
                 "address" => $user->address,
                 "email" => $user->email,
                 "pay_limit" => $user->pay_limit,
-                "admin" => $user->admin,
             ]);
-
+            
         // viewのトップページに戻る
         return redirect('/');
     }

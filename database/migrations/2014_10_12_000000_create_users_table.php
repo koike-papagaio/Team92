@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id()->index();
             $table->string('name',30);
             $table->string('address',191);
-            $table->string('email',191);
+            $table->string('email',191)->charset("utf8");
             $table->string('password',128);
             $table->integer('pay_limit');
             $table->integer('admin');

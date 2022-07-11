@@ -52,11 +52,11 @@ class Member_editController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => ['required','string','max:30'],
-                'address' => ['required','string','max:191'],
-                'email' => ['required','email:rfc,dns','string','max:191',Rule::unique('users')->ignore($user->id)],
-                'password' => ['nullable','string','max:128'],
-                'pay_limit' => ['required','integer'],
+                'name' => ['required', 'string', 'max:30'],
+                'address' => ['required', 'string', 'max:191'],
+                'email' => ['required', 'email:rfc,dns', 'string', 'max:191', Rule::unique('users')->ignore($user->id)],
+                'password' => ['nullable', 'string', 'max:128'],
+                'pay_limit' => ['required', 'integer'],
             ],
         );
 
@@ -78,7 +78,17 @@ class Member_editController extends Controller
         // データを保存する
         $user->save();
 
-        // viewの'/login'に戻る
-        return redirect('/login');
+        // セッションに編集したデータを登録しなおす
+            //セッションをセット
+            $request->session()->put([
+                "id" => $user->id,
+                "name" => $user->name,
+                "address" => $user->address,
+                "email" => $user->email,
+                "pay_limit" => $user->pay_limit,
+            ]);
+
+        // viewのトップページに戻る
+        return redirect('/');
     }
 }

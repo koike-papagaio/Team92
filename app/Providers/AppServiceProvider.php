@@ -23,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {        
+        if(\app::environment(['production'])){
+            \URL::forseScheme('https');
+        }
         Paginator::useBootstrap();
     }
 }

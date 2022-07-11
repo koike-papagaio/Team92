@@ -166,6 +166,6 @@ return [
         'image4' => '商品画像',
         'price' => '売価',
         'item_detail' => '商品詳細',
-],
+    ],
 
 ];

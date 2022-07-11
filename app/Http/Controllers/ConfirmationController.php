@@ -15,12 +15,12 @@ class ConfirmationController extends Controller
      */
     public function confirmation(Request $request)
     {
-        //$user_id = $request->session()->get('user_id');
-        $user_id = 1; //テスト用
+        $user_id = session()->get('id');
+
         //cartのID持ってくる
         $carts = Cart::where('user_id',"=",$user_id)->get();
-        //$id = $request->session()->get('id');
-        $id = 1; //テスト用
+        $id = session()->get('id');
+        
         //userのID持ってくる
         $users = User::where('id',"=",$id)->get();
         //１．金額の集計を変数にセットする

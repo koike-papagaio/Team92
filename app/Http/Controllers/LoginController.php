@@ -24,8 +24,8 @@ class LoginController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'email' => ['required','email:rfc,dns','string','max:191'],
-                'password' => ['required','string','max:128'],
+                'email' => ['required', 'email:rfc,dns', 'string', 'max:191'],
+                'password' => ['required', 'string', 'max:128'],
             ],
         );
 
@@ -40,7 +40,7 @@ class LoginController extends Controller
 
         // ユーザーが存在しない場合，viewの'/login'に戻る
         if (!isset($user)) {
-            return view('auth/login',['login_error' => '1']);
+            return view('auth/login', ['login_error' => '1']);
         }
 
         // パスワードが一致した場合
@@ -49,6 +49,10 @@ class LoginController extends Controller
             //セッションをセット(idとadmin)
             $request->session()->put([
                 "id" => $user->id,
+                "name" => $user->name,
+                "address" => $user->address,
+                "email" => $user->email,
+                "pay_limit" => $user->pay_limit,
                 "admin" => $user->admin,
             ]);
 
@@ -62,7 +66,16 @@ class LoginController extends Controller
             }
         } else {
             // viewの'/login'に戻る
-            return view('auth/login',['login_error' => '1']);
+            return view('auth/login', ['login_error' => '1']);
         }
+    }
+
+    public function logout(Request $request)
+    {
+
+        // セッション削除
+        $request->session()->flush();
+
+        return redirect('/');
     }
 }

@@ -16,18 +16,18 @@ class BuySeeder extends Seeder
     {
         Buy::create([
             'user_id' => '1',
-            'user_name' => '江戸川 コナン',
+            'user_name' => 'テスト１',
             'address' => '東京都米花市米花町2丁目21番地',
             'email' => 'example1@gmail.com',
             'item_name' => 'リンゴ',
             'price' => '100',
-            'quantity' => '4869',
+            'quantity' => '10',
             'payment' => '1',
             'bought_num' => '2022060001',
         ]);
         Buy::create([
             'user_id' => '2',
-            'user_name' => '鈴木 園子',
+            'user_name' => 'テスト２',
             'address' => '東京都米花市',
             'email' => 'example2@gmail.com',
             'item_name' => 'リクルートスーツ',
@@ -38,7 +38,7 @@ class BuySeeder extends Seeder
         ]);
         Buy::create([
             'user_id' => '3',
-            'user_name' => '服部 平次',
+            'user_name' => 'テスト３',
             'address' => '大阪府寝屋川市',
             'email' => 'example3@gmail.com',
             'item_name' => 'ランニングシューズ',

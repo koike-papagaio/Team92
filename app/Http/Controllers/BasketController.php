@@ -14,16 +14,15 @@ class BasketController extends Controller
      */
     public function basket(Request $request)
     {
-        //$user_id = $request->session()->get('user_id');
-        $user_id = 1; //テスト用
+        $user_id = session()->get("id");
 
         $carts = Cart::where('user_id',"=",$user_id)->get();
         //１．金額の集計を変数にセットする
-        $aa = Cart::selectRaw('SUM(price * quantity) as total')
+        $money = Cart::selectRaw('SUM(price * quantity) as total')
         ->where('user_id',"=",$user_id)
         ->first();
         
-        return view('buy.basket', compact('carts','aa'));
+        return view('buy.basket', compact('carts','money'));
     }
 
     /**
@@ -34,15 +33,14 @@ class BasketController extends Controller
         $carts = Cart::find($id);
         $carts->delete();
 
-        //$user_id = $request->session()->get('user_id');
-        $user_id = 1; //テスト用
+        $user_id = session()->get('id');
         
         $carts = Cart::where('user_id',"=",$user_id)->get();
         //１．金額の集計を変数にセットする
-        $aa = Cart::selectRaw('SUM(price * quantity) as total')
+        $money = Cart::selectRaw('SUM(price * quantity) as total')
         ->where('user_id',"=",$user_id)
         ->first();
-        return view('buy.basket', compact('carts','aa'));
+        return view('buy.basket', compact('carts','money'));
     }
 
 }

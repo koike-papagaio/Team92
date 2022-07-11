@@ -79,7 +79,7 @@ class Member_editController extends Controller
         $user->save();
 
         // セッションに編集したデータを登録しなおす
-            //セッションをセット(idとadmin)
+            //セッションをセット
             $request->session()->put([
                 "id" => $user->id,
                 "name" => $user->name,
@@ -87,7 +87,7 @@ class Member_editController extends Controller
                 "email" => $user->email,
                 "pay_limit" => $user->pay_limit,
             ]);
-            
+
         // viewのトップページに戻る
         return redirect('/');
     }

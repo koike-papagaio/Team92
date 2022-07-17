@@ -2,6 +2,7 @@
 
     <a href="{{ route('index') }}" class="d-block">ショップ92</a>
 
+    
     @if (Session::has('id'))
         @if(Session::get('admin') === 1)
         <!-- 管理者画面 -->

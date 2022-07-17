@@ -1,4 +1,3 @@
-@section('header')
 <header class="bg-light">
 
     <a href="{{ route('index') }}" class="d-block">ショップ92</a>
@@ -50,4 +49,3 @@
     @endif
 
 </header>
-@endsection

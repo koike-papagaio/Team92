@@ -19,8 +19,7 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-    <!-- <x-Header/> -->
-    @yield('header')
+    <x-Header/>
 
     <div class="top-container">
         <div class="main-shop-title">

@@ -19,7 +19,8 @@
 
 <body>
     <!-- ヘッダー読み込み -->
-    <x-Header/>
+    <!-- <x-Header/> -->
+    @yield('header')
 
     <div class="top-container">
         <div class="main-shop-title">

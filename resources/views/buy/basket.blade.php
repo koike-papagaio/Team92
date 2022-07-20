@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>買い物かご画面</title>
-           <!-- CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     
@@ -37,7 +37,7 @@
                     @foreach ($carts as $cart)
                         <tr>
                             <td class="basket-item">
-                                <img class="basket-img" src="{{ asset('testimg/testimg.png') }}"> <!-- $cart->image1 -->
+                                <img class="basket-img" src="{{ asset($cart->image1) }}"> <!-- $cart->image1 -->
                                 <p class="basket-item-name">{{$cart->item_name}}</p>
                                 <a class="basket-delete" href="{{ url('/basket/'.$cart->id) }}">削除</a>
                             </td>                

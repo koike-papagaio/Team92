@@ -15,21 +15,21 @@ class ItemSeeder extends Seeder
     public function run()
     {
         Item::create([
-            'category_id' => '1',
+            'category_id' => '4',
             'name' => 'リンゴ',
             'price' => '100',
             'item_detail' => '真っ赤で甘いそのまま食べるのに向いているリンゴです',
             'sales_status' => '0',
         ]);
         Item::create([
-            'category_id' => '2',
+            'category_id' => '14',
             'name' => 'ランニングシューズ',
             'price' => '4000',
             'item_detail' => 'アキレス俊足',
             'sales_status' => '0',
         ]);
         Item::create([
-            'category_id' => '3',
+            'category_id' => '24',
             'name' => 'リクルートスーツ',
             'price' => '15000',
             'item_detail' => '就職面接用スーツ',

@@ -24,9 +24,9 @@ class ConfirmationController extends Controller
         //userのID持ってくる
         $users = User::where('id',"=",$id)->get();
         //１．金額の集計を変数にセットする
-        $aa = Cart::selectRaw('SUM(price * quantity) as total')
+        $money = Cart::selectRaw('SUM(price * quantity) as total')
         ->where('user_id',"=",$user_id)
         ->first();
-        return view('buy.confirmation', compact('carts','users','aa'));
+        return view('buy.confirmation', compact('carts','users','money'));
     }
 }

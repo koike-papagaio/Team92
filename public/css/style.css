@@ -259,6 +259,7 @@ li {
 .basket-img {
     width: 170px;
     height: 200px;
+    object-fit: contain;
 }
 
 .basket-item-name {
@@ -308,6 +309,7 @@ li {
 .confirmation-img {
     width: 170px;
     height: 200px;
+    object-fit: contain;
 }
 
 .confirmation-item-name {

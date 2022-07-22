@@ -36,7 +36,7 @@
                 @foreach ($carts as $cart)
                 <tr>
                     <td class="basket-item">
-                        <img class="confirmation-img" src="{{ asset('testimg/testimg.png') }}"> 
+                        <img class="confirmation-img" src="{{ $cart->image1 }}"> 
                         <p class="confirmation-item-name">{{$cart->item_name}}</p>
                     </td>
                     <td>{{$cart->price}}円</td>
@@ -45,7 +45,7 @@
                 </tr>
                 @endforeach
                 <tr>
-                    <th colspan="4" class="confirmation-total-price">合計金額:{{$aa->total}}円</th>
+                    <th colspan="4" class="confirmation-total-price">合計金額:{{$money->total}}円</th>
                 </tr>            
             </table>
         </div>
